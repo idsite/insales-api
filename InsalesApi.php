@@ -33,13 +33,12 @@ class InsalesApi extends \yii\base\Object {
      */
     public $host;
 
-    public function init() {
+    public function request($url, $method = self::METHOD_GET, $data = null) {
+
         if (!$this->id || !$this->password || !$this->host) {
             throw new InvalidArgumentException('Not all fields are defined');
         }
-    }
 
-    public function request($url, $method = self::METHOD_GET, $data = null) {
         $url = 'http://' . $this->id . ':' . $this->password . '@' . $this->host . '/' . $url;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
