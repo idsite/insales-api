@@ -1,0 +1,17 @@
+{
+    "name": "idsite/insales-api",
+    "description": "for Yii2 PHP extension for API insales.ru",
+    "version": "0.0.1",
+    "type": "library",
+    "keywords": ["insales.ru", "insales", "api", "yii2"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "idsite\\insales_api\\": ""
+        }
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*"
+    }
+}
