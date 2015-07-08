@@ -40,11 +40,19 @@ class InsalesApi {
 
         $url = 'http://' . $this->id . ':' . $this->password . '@' . $this->host . '/' . $url;
         $ch = curl_init();
+
+
+
+
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
 
         if ($data) {
             if ($method !== self::METHOD_GET) {
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+                $ex = pathinfo($url, PATHINFO_EXTENSION);
+                if (strcasecmp($ex, 'json') === 0) {
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json; charset=utf-8", 'Expect:'));
+                }
             } else {
                 $url.='?' . http_build_query($data);
             }
