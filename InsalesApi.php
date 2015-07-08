@@ -2,7 +2,6 @@
 
 namespace idsite\insales_api;
 
-use InvalidArgumentException;
 
 /**
  * Description of InsalesApi
