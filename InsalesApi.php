@@ -9,7 +9,7 @@ use InvalidArgumentException;
  *
  * @author Derzhavin A.
  */
-class InsalesApi extends \yii\base\Object {
+class InsalesApi {
 
     const METHOD_GET = 'GET';
     const METHOD_POST = 'POST';
@@ -36,7 +36,7 @@ class InsalesApi extends \yii\base\Object {
     public function request($url, $method = self::METHOD_GET, $data = null) {
 
         if (!$this->id || !$this->password || !$this->host) {
-            throw new InvalidArgumentException('Not all fields are defined');
+            throw new \Exception('Not all fields are defined');
         }
 
         $url = 'http://' . $this->id . ':' . $this->password . '@' . $this->host . '/' . $url;
