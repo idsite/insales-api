@@ -31,12 +31,21 @@ class InsalesApi {
      * @var string 
      */
     public $host;
-
+    
+    /**
+     *  пример $options = $insales->request('/admin/option_names.json');
+     * @param type $url
+     * @param type $method
+     * @param type $data
+     * @return type
+     * @throws \Exception
+     * @throws \yii\base\Exception
+     */
     public function request($url, $method = self::METHOD_GET, $data = null) {
         if (!$this->id || !$this->password || !$this->host) {
             throw new \Exception('Not all fields are defined');
         }
-        $url = 'http://' . $this->id . ':' . $this->password . '@' . $this->host . '/' . $url;
+        $url = 'http://' . $this->id . ':' . $this->password . '@' . $this->host . $url;
 
         do {
             $ch = curl_init();
